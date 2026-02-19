@@ -89,38 +89,31 @@ Os arquivos serão gerados em `dist/`
 ## 🏗️ Estrutura do Projeto
 ```
 frontend/
-├── public/                      # Arquivos estáticos
+├── cypress/                     # Testes de Integração E2E
+│   ├── e2e/                     # Scripts de teste (Ex: producao.cy.js)
+│   ├── fixtures/                # Dados estáticos para mocks
+│   └── support/                 # Comandos customizados e configurações
+├── public/                      # Arquivos estáticos (ícones, imagens)
 ├── src/
-│   ├── app/                     # Configuração do Redux
-│   │   ├── hooks.ts            # Hooks tipados (useAppDispatch, useAppSelector)
-│   │   └── store.ts            # Store do Redux
-│   ├── components/              # Componentes React
-│   │   ├── layout/
-│   │   │   └── Header.tsx      # Cabeçalho com navegação
-│   │   ├── Dashboard.tsx       # Tela principal com sugestões
-│   │   ├── ProductForm.tsx     # Formulário de cadastro de produtos
-│   │   ├── MaterialList.tsx    # Lista de matérias-primas
-│   │   └── ProductionModal.tsx # Modal de execução de produção
-│   ├── features/                # Redux slices
-│   │   ├── productSlice.ts     # Estado de produtos e sugestões
-│   │   └── materialSlice.ts    # Estado de matérias-primas
-│   ├── services/                # Serviços de API
-│   │   ├── api.ts              # Configuração do Axios
-│   │   ├── productService.ts   # Endpoints de produtos
-│   │   └── materialService.ts  # Endpoints de matérias-primas
-│   ├── hooks/                   # Custom hooks
-│   │   └── useFormatter.ts     # Formatação de valores
-│   ├── types/                   # TypeScript interfaces
-│   │   └── index.ts            # Tipos compartilhados
-│   ├── App.tsx                  # Componente raiz
-│   ├── main.tsx                 # Entry point
-│   └── index.css                # Estilos globais + Tailwind
-├── .env.example                 # Template de variáveis de ambiente
-├── .gitignore
-├── package.json
-├── tsconfig.json                # Configuração TypeScript
-├── vite.config.ts               # Configuração Vite
-├── tailwind.config.js           # Configuração Tailwind
+│   ├── app/                     # Configuração Global (Redux Store)
+│   │   ├── hooks.ts             # Hooks tipados (useAppDispatch, useAppSelector)
+│   │   └── store.ts             # Centralização dos reducers
+│   ├── components/              # Componentes de UI (React)
+│   │   ├── layout/              # Componentes estruturais (Header, Sidebar)
+│   │   ├── Dashboard.tsx        # Dashboard de sugestões
+│   │   ├── ProductForm.tsx      # Cadastro de novos produtos
+│   │   ├── MaterialList.tsx     # Gestão de matérias-primas
+│   │   └── ProductionModal.tsx  # Lógica de execução de ordem
+│   ├── features/                # Slices do Redux (Lógica de estado)
+│   ├── services/                # Camada de comunicação com API (Axios)
+│   ├── hooks/                   # Custom Hooks (Lógica reutilizável)
+│   ├── types/                   # Definições de Interfaces TypeScript
+│   ├── App.tsx                  # Orquestrador de rotas e componentes
+│   └── main.tsx                 # Ponto de entrada da aplicação
+├── .env                         # Variáveis de ambiente (API URL)
+├── cypress.config.ts            # Configuração técnica do Cypress
+├── tailwind.config.js           # Customização de design do Tailwind
+├── vite.config.ts               # Configuração do Build Tool (Vite)
 └── README.md
 ```
 
@@ -254,6 +247,18 @@ npm run type-check
 ```
 
 ---
+
+## 🧪 Testes Automatizados
+
+O projeto utiliza uma estratégia de testes em duas camadas:
+
+### Testes E2E (End-to-End) com Cypress
+Validamos o fluxo completo de integração entre o React e a API Quarkus.
+- **O que é testado:** Navegação, abertura de modais de produção e execução de ordens com feedback em tempo real.
+- **Como executar:**
+  ```bash
+  # Com o Frontend e Backend rodando, execute:
+  npx cypress open
 
 ## 🎯 Funcionalidades Implementadas
 
@@ -447,8 +452,8 @@ Este projeto foi desenvolvido para o teste prático da Autoflex.
 
 Desenvolvido como solução para o teste prático da **Autoflex**.
 
-**GitHub:** [seu-usuario](https://github.com/seu-usuario)  
-**LinkedIn:** [seu-perfil](https://linkedin.com/in/seu-perfil)
+**GitHub:** [Thyago-Josef](https://github.com/Thyago-Josef)  
+**LinkedIn:** [Thyago José](https://linkedin.com/in/thyagojosenascimento/)
 
 ---
 
