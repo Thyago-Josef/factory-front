@@ -136,8 +136,7 @@ Crie um arquivo `.env` na raiz do projeto (ou copie `.env.example`):
 VITE_API_URL=http://localhost:8080
 
 # Outras configurações (opcional)
-VITE_APP_NAME=Factory Manager
-```
+
 
 ### Conectar a API
 
