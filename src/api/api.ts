@@ -1,7 +1,17 @@
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
 const api = axios.create({
-    baseURL: 'http://localhost:8080', // Confirme se seu Quarkus está nessa porta
+    baseURL: API_URL,
+    headers: {
+        'Content-Type': 'application/json',
+    }
+});
+
+api.interceptors.request.use((config) => {
+    console.log(`🚀 Chamando API: ${config.baseURL}${config.url}`);
+    return config;
 });
 
 export default api;
